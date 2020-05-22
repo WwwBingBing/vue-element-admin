@@ -6,23 +6,33 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 // import $ from 'jquery'
 export default {
   name: 'HelloWorld',
+  computed: {
+    ...mapGetters(['size', 'token'])
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
   },
   mounted () {
-    console.log($('#id'))
+    console.log(this.token)
+    this.getData()
+  },
+  methods: {
+    getData () {
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
