@@ -6,7 +6,7 @@
       <el-button style="padding: 8px 10px;"
                  size="small"
                  type="danger">
-        <svg-icon icon-class="bug" />
+        <svg-icon icon-class="warning" />
       </el-button>
     </el-badge>
 

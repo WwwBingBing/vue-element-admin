@@ -15,20 +15,20 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: 'Dashboard', icon: 's-home', affix: true }
       }
     ]
   },
   {
-    path: '/home',
+    path: '/other',
     component: Layout,
     hidder: true,
     children: [
       {
-        path: '/home',
-        component: () => import('@/views/home'),
-        name: 'Home',
-        meta: {title: 'Home', icon: 'dashboard', affix: false}
+        path: '/other',
+        component: () => import('@/views/other'),
+        name: 'other',
+        meta: {title: 'Other', icon: 's-platform', affix: false}
       }
     ]
   },
@@ -39,7 +39,7 @@ export const constantRoutes = [
     name: 'Charts',
     meta: {
       title: 'Charts',
-      icon: 'chart'
+      icon: 'picture'
     },
     children: [
       {

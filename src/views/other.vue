@@ -2,7 +2,7 @@
   <div class="hello">
     <h1 id="id">{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <svg-icon icon-class="bug"  />
+    <el-input v-model="msg"></el-input>
   </div>
 </template>
 

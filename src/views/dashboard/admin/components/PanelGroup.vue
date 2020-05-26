@@ -8,7 +8,7 @@
       <div class="card-panel"
            @click="handleSetLineChartData('newVisitis')">
         <div class="card-panel-icon-wrapper icon-people">
-          <svg-icon icon-class="peoples"
+          <svg-icon icon-class="user-solid"
                     class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
@@ -71,7 +71,7 @@
       <div class="card-panel"
            @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-icon-wrapper icon-shopping">
-          <svg-icon icon-class="shopping"
+          <svg-icon icon-class="sugar"
                     class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
