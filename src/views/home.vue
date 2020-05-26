@@ -2,6 +2,7 @@
   <div class="hello">
     <h1 id="id">{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <svg-icon icon-class="bug"  />
   </div>
 </template>
 
@@ -19,8 +20,8 @@ export default {
     }
   },
   mounted () {
-    console.log(this.token)
     this.getData()
+    // this.generateRoutes('/home')
   },
   methods: {
     getData () {

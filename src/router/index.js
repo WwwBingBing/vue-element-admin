@@ -5,21 +5,68 @@ import Layout from '@/Layout'
 
 Vue.use(Router)
 
-const constantRoutes = [
+export const constantRoutes = [
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Dashboard',
+        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+      }
+    ]
+  },
   {
     path: '/home',
-    name: 'Layout',
     component: Layout,
     hidder: true,
     children: [
       {
         path: '/home',
-        component: () => import('@/views/home')
+        component: () => import('@/views/home'),
+        name: 'Home',
+        meta: {title: 'Home', icon: 'dashboard', affix: false}
+      }
+    ]
+  },
+  {
+    path: '/charts',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'Charts',
+    meta: {
+      title: 'Charts',
+      icon: 'chart'
+    },
+    children: [
+      {
+        path: 'keyboard',
+        component: () => import('@/views/charts/keyboard'),
+        name: 'KeyboardChart',
+        meta: { title: 'Keyboard Chart', noCache: true }
+      },
+      {
+        path: 'line',
+        component: () => import('@/views/charts/line'),
+        name: 'LineChart',
+        meta: { title: 'Line Chart', noCache: true }
+      },
+      {
+        path: 'mix-chart',
+        component: () => import('@/views/charts/mix-chart'),
+        name: 'MixChart',
+        meta: { title: 'Mix Chart', noCache: true }
       }
     ]
   }
 ]
 
+export const asyncRoutes = [
+
+]
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),

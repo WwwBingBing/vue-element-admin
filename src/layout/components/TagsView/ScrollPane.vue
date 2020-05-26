@@ -1,5 +1,8 @@
 <template>
-  <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
+  <el-scrollbar ref="scrollContainer"
+                :vertical="false"
+                class="scroll-container"
+                @wheel.native.prevent="handleScroll">
     <slot />
   </el-scrollbar>
 </template>
@@ -9,32 +12,32 @@ const tagAndTagSpacing = 4 // tagAndTagSpacing
 
 export default {
   name: 'ScrollPane',
-  data() {
+  data () {
     return {
       left: 0
     }
   },
   computed: {
-    scrollWrapper() {
+    scrollWrapper () {
       return this.$refs.scrollContainer.$refs.wrap
     }
   },
-  mounted() {
+  mounted () {
     this.scrollWrapper.addEventListener('scroll', this.emitScroll, true)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.scrollWrapper.removeEventListener('scroll', this.emitScroll)
   },
   methods: {
-    handleScroll(e) {
+    handleScroll (e) {
       const eventDelta = e.wheelDelta || -e.deltaY * 40
       const $scrollWrapper = this.scrollWrapper
       $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4
     },
-    emitScroll() {
+    emitScroll () {
       this.$emit('scroll')
     },
-    moveToTarget(currentTag) {
+    moveToTarget (currentTag) {
       const $container = this.$refs.scrollContainer.$el
       const $containerWidth = $container.offsetWidth
       const $scrollWrapper = this.scrollWrapper
