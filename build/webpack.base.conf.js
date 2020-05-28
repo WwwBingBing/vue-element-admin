@@ -78,7 +78,8 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          // 增加字体文件打包上传限制
+          limit: 100000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }

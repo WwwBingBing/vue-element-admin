@@ -3,7 +3,7 @@ import store from './store'
 import { Message } from 'element-ui'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
-import { getToken, setToken } from '@/utils/auth' // get token from cookie
+import { getToken } from '@/utils/auth' // get token from cookie
 import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
@@ -20,9 +20,9 @@ router.beforeEach(async (to, from, next) => {
   // store.dispatch('user/login', {username: 'editor', password: '123'})
   // determine whether the user has logged in
   const hasToken = getToken()
-  const TOKEN = 'admin-token'
-  setToken(TOKEN)
-  store.commit('user/SET_TOKEN', TOKEN)
+  // const TOKEN = 'admin-token'
+  // setToken(TOKEN)
+  // store.commit('user/SET_TOKEN', TOKEN)
   if (hasToken) {
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
@@ -64,7 +64,8 @@ router.beforeEach(async (to, from, next) => {
       next()
     } else {
       // other pages that do not have permission to access are redirected to the login page.
-      next(`/login?redirect=${to.path}`)
+      // next(`/login?redirect=${to.path}`)
+      next()
       NProgress.done()
     }
   }

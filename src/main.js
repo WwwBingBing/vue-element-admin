@@ -20,11 +20,10 @@ import './utils/error-log' // error log
 import * as filters from './filters' // global filters
 
 Vue.config.productionTip = false
-
-if (process.env.NODE_ENV === 'development') {
-  const { mockXHR } = require('../mock')
-  mockXHR()
-}
+// 部署后是生产环境 取消限制
+if (process.env.NODE_ENV === 'development') {}
+const { mockXHR } = require('../mock')
+mockXHR()
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
