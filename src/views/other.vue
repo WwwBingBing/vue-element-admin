@@ -1,22 +1,30 @@
 <template>
   <div class="hello">
-    <el-button @click="draw">draw</el-button>
-    <div id="box">{{msg}}</div>
+    <glitchy-btn @click-btn="draw">
+      <div>
+        draw
+      </div>
+    </glitchy-btn>
+    <div id="box"></div>
   </div>
 </template>
 
 <script>
 import * as PIXI from 'pixi.js'
 import { mapGetters } from 'vuex'
+import img from '../assets/401_images/401.gif'
+import GlitchyBtn from '@/components/GlitchyBtn'
 // import $ from 'jquery'
 export default {
   name: 'HelloWorld',
+  components: {
+    GlitchyBtn
+  },
   computed: {
     ...mapGetters(['size', 'token'])
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   },
   mounted () {
@@ -27,15 +35,14 @@ export default {
       // with a fallback to a canvas render. It will also setup the ticker
       // and the root stage PIXI.Container
       const app = new PIXI.Application()
-      console.log(app)
       // The application will create a canvas element for you that you
       // can then insert into the DOM
       document.querySelector('#box').appendChild(app.view)
 
       // load the texture we need
-      // app.loader.add('bunny', '../assets/401_images/401.gif').load((loader, resources) => {
-      app.loader.add('bunny', 'bunny.png').load((loader, resources) => {
+      app.loader.add('bunny', img).load((loader, resources) => {
         // This creates a texture from a 'bunny.png' image
+        console.log(resources)
         const bunny = new PIXI.Sprite(resources.bunny.texture)
         // Setup the position of the bunny
         bunny.x = app.renderer.width / 2
@@ -44,7 +51,6 @@ export default {
         // Rotate around the center
         bunny.anchor.x = 0.5
         bunny.anchor.y = 0.5
-        console.log(bunny)
 
         // Add the bunny to the scene we are building
         app.stage.addChild(bunny)
@@ -61,8 +67,10 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .hello {
-  background: #c7551f;
+  background: black;
+  padding-top: 20px;
+  text-align: center;
 }
 </style>

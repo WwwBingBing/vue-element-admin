@@ -83,9 +83,11 @@ export default {
       width: 100%;
       height: 100%;
       transition: all 0.2s linear;
+      filter: blur(3px);
       &:hover {
-        transform: scale(1.1, 1.1);
+        filter: blur(0px);
         filter: contrast(130%);
+        transform: scale(1.2, 1.2);
       }
     }
   }
