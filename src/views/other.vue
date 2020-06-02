@@ -5,7 +5,9 @@
         draw
       </div>
     </glitchy-btn>
-    <div id="box"></div>
+    <div id="box">
+        {{msg|uppercaseFirst}}
+    </div>
   </div>
 </template>
 
@@ -25,6 +27,7 @@ export default {
   },
   data () {
     return {
+      msg: 'abcd'
     }
   },
   mounted () {
@@ -70,6 +73,7 @@ export default {
 <style scoped lang="scss">
 .hello {
   background: black;
+  color: aquamarine;
   padding-top: 20px;
   text-align: center;
 }

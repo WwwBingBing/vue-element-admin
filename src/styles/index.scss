@@ -5,6 +5,11 @@
 @import './sidebar.scss';
 @import './btn.scss';
 
+@font-face {
+  font-family: Asd;
+  src: url('../font/Zapfino.ttf');
+ }
+
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
