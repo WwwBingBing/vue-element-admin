@@ -17,6 +17,9 @@ import './icons' // icon
 import './permission'
 import './utils/error-log' // error log
 
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
+
 import * as filters from './filters' // global filters
 
 Vue.config.productionTip = false
@@ -29,6 +32,7 @@ Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
 })
 
+Vue.use(Antd)
 // register global utility filters
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])

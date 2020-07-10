@@ -20,6 +20,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/antd',
+    component: Layout,
+    hidder: true,
+    children: [
+      {
+        path: '/antd',
+        component: () => import('@/views/antd'),
+        name: 'antd',
+        meta: {title: 'Antd', icon: 'picture-outline-round', affix: false}
+      }
+    ]
+  },
+  {
     path: '/other',
     component: Layout,
     hidder: true,

@@ -17,7 +17,7 @@
            class="edit"
            @keyup.enter="doneEdit"
            @keyup.esc="cancelEdit"
-           @blur="doneEdit">rgb(0%, 100%, 0%)
+           @blur="doneEdit">
   </li>
 </template>
 
